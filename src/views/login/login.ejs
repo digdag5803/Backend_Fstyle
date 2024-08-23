@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Đăng nhập </title>
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+        
+  <link rel="stylesheet" href="/css/login.css" />
+    
+    <script type='text/javascript' src=''></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script type='text/javascript' src=''></script>
+</head>
+
+<body oncontextmenu='return false' class='snippet-body'>
+    <div class="login-box">
+        <h2>ADMIN PANEL</h2>
+        <div class="mb-3">
+            <label class="form-label fw-bold text-danger">
+              <%= msg %>
+            </label>
+          </div>
+        <form method="post">
+            <div class="user-box">
+                <input type="text"  required="" name="username" >
+                <label>Username</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="password" required="" autocomplete="off" >
+                <label>Password</label>
+            </div>
+            
+            <button href="#" style="background-color: transparent;" type="submit" >
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+            </button>
+        </form>
+    </div>  
+    <script type='text/javascript'></script>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+        
+    </script>
+ <script>
+    history.pushState(null, null, window.location.href);
+    history.back();
+    window.onpopstate = () => history.forward();
+  </script>
+</body>
+
+</html>

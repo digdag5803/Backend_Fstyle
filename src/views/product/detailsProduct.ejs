@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="/css/uploadimg.css">
+    <style>
+        .show {
+            width: calc(var(--nav-width) + 156px);
+        }
+
+        .fileimagedata {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            position: absolute;
+            left: 206px;
+            top: -14px;
+        }
+
+        .fileimagedata img {
+            padding: 14px;
+            width: auto;
+            height: 201px;
+            margin: 5px;
+            object-fit: cover;
+        }
+
+        .image-container {
+            position: relative;
+            margin: 5px;
+        }
+
+        .image-container img {
+            max-width: 200px;
+            height: 200px;
+            display: block;
+
+        }
+
+
+        .delete-btn {
+            position: absolute;
+            top: -4px;
+            right: 5px;
+            background-color: #ff0000;
+            color: #00ffa8;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;900&display=swap");
+
+        :root {
+            --primary: #3df2e9;
+            --secondary: rgb(243, 0, 85);
+            --dark: #152026;
+            --gray: #273640;
+            --light: #6d808c;
+        }
+
+
+
+        #progress-bar-loading {
+            position: relative;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            color: var(--primary);
+            outline: 4px solid var(--primary);
+            outline-offset: -1px;
+            left: 370px;
+            bottom: 70px;
+            align-items: center;
+            display: none;
+        }
+
+        #progress-bar-loading::after,
+        .number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .number {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .circle {
+            stroke: var(--secondary);
+            stroke-dasharray: 410;
+            stroke-dashoffset: 410;
+            animation: barFill 5s linear forwards;
+            transform: rotate(-90deg);
+        }
+
+        @keyframes barFill {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+    <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/css/uploadimg.css">
+    <style>
+        .show {
+            width: calc(var(--nav-width) + 156px);
+        }
+    </style>
+
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <div class="sidebar-brand-icon">
+                    <img src="/img/logo/logo.png">
+                </div>
+                <div class="sidebar-brand-text mx-3" style="font-weight: 500;" style="font-weight: 500;">Sneaker Nike
+                    Store</div>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item ">
+                <a class="nav-link" href="/admin/dashboard">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Features
+            </div>
+            <li class="nav-item active">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+                    aria-expanded="true" aria-controls="collapseBootstrap">
+                    <i class="fab fa-product-hunt" style="font-size: 20px;"></i>
+                    <span>Quản lý sản phẩm</span>
+                </a>
+                <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Products Manager</h6>
+                        <a class="collapse-item " href="/admin/products">Danh sách sản phẩm</a>
+                        <a class="collapse-item" href="/admin/products/create">Thêm Sản phẩm</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#categoryclick"
+                    aria-expanded="true" aria-controls="categoryclick">
+                    <!-- Different icon for "Quản lý Danh mục" -->
+                    <img src="https://icons.veryicon.com/png/o/miscellaneous/fangshan-design_icon/category-18.png"
+                        style="width: 20px; height: 20px;">
+                    <span>Quản lý Danh mục</span>
+                </a>
+                <div id="categoryclick" class="collapse" aria-labelledby="headingBootstrap"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Danh sách danh mục</h6>
+                        <a class="collapse-item " href="/admin/categories">Danh sách danh mục</a>
+                        <!-- <a class="collapse-item" href="/admin/voucher/create">Thêm Voucher</a> -->
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#customerManager"
+                    aria-expanded="true" aria-controls="customerManager">
+                    <i class="fa fa-user" style="font-size: 20px;"></i>
+                    <span>Quản lý người dùng</span>
+                </a>
+                <div id="customerManager" class="collapse" aria-labelledby="headingBootstrap"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Quản lý người dùng</h6>
+                        <a class="collapse-item" href="/admin/users">Danh sách khách hàng</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#discountsclick"
+                    aria-expanded="true" aria-controls="discountsclick">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1874/1874938.png"
+                        style="width: 20px; height: 20px;">
+                    <span>Quản lý Voucher</span>
+                </a>
+                <div id="discountsclick" class="collapse" aria-labelledby="headingBootstrap"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Vouchers Manager</h6>
+                        <a class="collapse-item" href="/admin/voucher/">Danh sách Voucher</a>
+                        <a class="collapse-item" href="/admin/voucher/create">Thêm Voucher</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#orderclick"
+                    aria-expanded="true" aria-controls="orderclick">
+                    <img src="https://icons.veryicon.com/png/o/miscellaneous/icondian/icon-order-1.png"
+                        style="width: 20px; height: 20px;">
+                    <span>Quản lý đơn hàng</span>
+                </a>
+                <div id="orderclick" class="collapse" aria-labelledby="headingBootstrap"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Quản lý đơn hàng</h6>
+                        <a class="collapse-item " href="/admin/orders/">Danh sách đơn hàng</a>
+                        <!-- <a class="collapse-item" href="/admin/voucher/create">Thêm Voucher</a> -->
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#analyticclick"
+                    aria-expanded="true" aria-controls="analyticclick">
+                    <img src="https://iili.io/JI7mMbI.png" style="width: 20px; height: 20px;">
+                    <span>Báo cáo</span>
+                </a>
+                <div id="analyticclick" class="collapse" aria-labelledby="headingBootstrap"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Doanh thu</h6>
+                        <a class="collapse-item " href="/admin/analytic/">Doanh thu bán hàng</a>
+                        <!-- <a class="collapse-item" href="/admin/voucher/create">Thêm Voucher</a> -->
+                    </div>
+                </div>
+            </li>
+            <hr class="sidebar-divider">
+            <hr class="sidebar-divider">
+            <div class="version" id="version-ruangadmin"></div>
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+                    <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-profile rounded-circle"
+                                    src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L3BmLWljb240LWppcjIwNjItcG9yLWwtam9iNzg4LnBuZw.png"
+                                    style="max-width: 60px">
+                                <span class="ml-2 d-none d-lg-inline text-white small">MD-02 Fall 2023</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal"
+                                    data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+
+                <table id="productTable" class="table table-bordered table-hover" style="width: 100%">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th>Danh mục</th>
+                            <th>Hình ảnh</th>
+                            <th>Giá tiền</th>
+                            <th>Mô tả</th>
+                            <th>Màu sắc</th>
+                            <th>Kích cỡ</th>
+                            <th>Hàng tồn kho</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td style="width: auto;">
+                                <%= product.id %>
+                            </td>
+                            <td>
+                                <%= product.name %>
+                            </td>
+                            <td>
+                                <%= product.category.name %>
+                            </td>
+                            <td class="text-center">
+                                <img class="product-img" style="max-width: 300px; 
+                                height: auto; 
+                                display: block; 
+                                margin: 0 auto;" src="<%= product.thumbnail %>" />
+                            </td>
+                            <td>
+                                <%= product.price %>
+                            </td>
+                            <td>
+                                <%= product.description %>
+                            </td>
+                            <td>
+                                <%= product.color %>
+                            </td>
+                            <td>
+                                <%= product.size %>
+                            </td>
+                            <td>
+                                <%= product.stock %>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabelLogout">Ohh No!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to logout?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-primary"
+                                    data-dismiss="modal">Cancel</button>
+                                <form action="/admin/auth/logout" method="POST">
+                                     <button type="submit" class="btn btn-primary" style="width: auto;">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/ruang-admin.min.js"></script>

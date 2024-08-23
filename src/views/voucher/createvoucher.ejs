@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" type="text/css" href="/css/discounts.css">
+  <!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- Include Chosen CSS and JS files -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+</head>
+
+<body id="page-top">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+        <div class="sidebar-brand-icon">
+          <img src="/img/logo/logo.png">
+        </div>
+        <div class="sidebar-brand-text mx-3" style="font-weight: 500;" style="font-weight: 500;">Sneaker Nike Store
+        </div>
+      </a>
+      <hr class="sidebar-divider my-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin/dashboard">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Features
+      </div>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+          aria-expanded="true" aria-controls="collapseBootstrap">
+          <i class="fab fa-product-hunt" style="font-size: 20px;"></i>
+          <span>Quản lý sản phẩm</span>
+        </a>
+        <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Products Manager</h6>
+            <a class="collapse-item " href="/admin/products">Danh sách sản phẩm</a>
+            <a class="collapse-item" href="/admin/products/create">Thêm Sản phẩm</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#customerManager"
+          aria-expanded="true" aria-controls="customerManager">
+          <i class="fa fa-user" style="font-size: 20px;"></i>
+          <span>Quản lý người dùng</span>
+        </a>
+        <div id="customerManager" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Quản lý người dùng</h6>
+            <a class="collapse-item" href="/admin/users">Danh sách khách hàng</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#discountsclick" aria-expanded="true"
+          aria-controls="discountsclick">
+          <img src="https://cdn-icons-png.flaticon.com/512/1874/1874938.png" style="width: 20px; height: 20px;">
+          <span>Quản lý Voucher</span>
+        </a>
+        <div id="discountsclick" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Vouchers Manager</h6>
+            <a class="collapse-item" href="/admin/voucher/">Danh sách Voucher</a>
+            <a class="collapse-item active" href="/admin/voucher/create">Thêm Voucher</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#orderclick" aria-expanded="true"
+          aria-controls="orderclick">
+          <img src="https://icons.veryicon.com/png/o/miscellaneous/icondian/icon-order-1.png"
+            style="width: 20px; height: 20px;">
+          <span>Quản lý đơn hàng</span>
+        </a>
+        <div id="orderclick" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Quản lý đơn hàng</h6>
+            <a class="collapse-item " href="/admin/orders/">Danh sách đơn hàng</a>
+            <!-- <a class="collapse-item" href="/admin/voucher/create">Thêm Voucher</a> -->
+          </div>
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#analyticclick" aria-expanded="true"
+          aria-controls="analyticclick">
+          <img src="https://iili.io/JI7mMbI.png" style="width: 20px; height: 20px;">
+          <span>Báo cáo</span>
+        </a>
+        <div id="analyticclick" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Doanh thu</h6>
+            <a class="collapse-item active" href="/admin/analytic/">Doanh thu bán hàng</a>
+            <!-- <a class="collapse-item" href="/admin/voucher/create">Thêm Voucher</a> -->
+          </div>
+        </div>
+      </li>
+      <hr class="sidebar-divider">
+      <hr class="sidebar-divider">
+      <div class="version" id="version-ruangadmin"></div>
+    </ul>
+    <!-- Sidebar -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <!-- TopBar -->
+        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img class="img-profile rounded-circle"
+                  src="https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L3BmLWljb240LWppcjIwNjItcG9yLWwtam9iNzg4LnBuZw.png"
+                  style="max-width: 60px">
+                <span class="ml-2 d-none d-lg-inline text-white small">MD-02 Fall 2023</span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+
+          </ul>
+        </nav>
+        <!-- Topbar -->
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Alerts</h1>
+
+          </div>
+
+
+          <div class="grid-container">
+
+            <form action="/admin/voucher/create" method="post" onsubmit="return validateForm()">
+              <div class="row">
+                <div class="ui-layout__item">
+                  <section class="ui-card">
+                    <header class="ui-card__header">
+                      <div class="ui-stack ui-stack--wrap">
+                        <div class="ui-stack-item ui-stack-item--fill">
+                          <h2 class="ui-heading">Mã khuyến mãi</h2>
+                        </div>
+                        <div class="ui-stack-item">
+                          <div class="ui-stack ui-stack--wrap">
+                            <div class="ui-stack-item">
+                              <a onclick="generateRandomCode()" href="#">Sinh mã ngẫu nhiên</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </header>
+
+
+                    <div class="ui-card__section">
+                      <div class="ui-type-container">
+                        <div class="next-input-wrapper">
+                          <label class="next-label helper--visually-hidden" for="discount_next_code">Name
+                            code</label>
+                          <div class="controls">
+                            <input class="next-input" data-bind="code" data-val="true" required name="voucher_name"
+                              placeholder="mã giảm giá 10%" size="30" type="text" autocomplete="off" />
+                            <div class="has-error hide">
+                              <span class="help-block"><span class="field-validation-valid"
+                                  data-valmsg-for="DiscountReqModel.Code" data-valmsg-replace="true"></span></span>
+                            </div>
+                          </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ui-card__section">
+                      <div class="ui-type-container">
+                        <div class="next-input-wrapper">
+                          <label class="next-label helper--visually-hidden" for="discount_next_code">Discount
+                            code</label>
+                          <div class="controls">
+                            <input class="next-input" data-bind="code" data-val="true" required id="discount_next_code"
+                              name="voucher_code" placeholder="Ví dụ: COUPON10%" size="30" type="text"
+                              autocomplete="off" />
+                            <div class="has-error hide">
+                              <span class="help-block"><span class="field-validation-valid"
+                                  data-valmsg-for="DiscountReqModel.Code" data-valmsg-replace="true"></span></span>
+                            </div>
+                          </div>
+
+                          <p class="next-input__help-text">Khách hàng sẽ nhập mã
+                            khuyến mãi này ở màn hình thanh toán.</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </section>
+                </div>
+                <div define="{discountType: &quot;percentage&quot;,customerSelection: &quot;all&quot; }"
+                  class="ui-layout__item">
+                  <section class="ui-card">
+                    <header class="ui-card__header">
+                      <h2 class="ui-heading">Loại khuyến mãi</h2>
+                    </header>
+                    <div class="ui-card__section">
+                      <div class="ui-type-container">
+                        <div>
+                          <fieldset class="ui-choice-list">
+                            <ul>
+                              <li>
+                                <div class="next-input-wrapper">
+                                  <input data-bind="discountType" value="1" type="radio" checked class="next-radio"
+                                    name="reward_type" id="discountType_percentage">
+                                  <label class="next-label next-label--switch" for="discountType_percentage">Theo
+                                    phần trăm</label>
+
+                                  <span class="next-radio--styled"></span>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="next-input-wrapper">
+                                  <input data-bind="discountType" value="2" type="radio" class="next-radio"
+                                    name="reward_type" id="discountType_amount">
+                                  <label class="next-label next-label--switch" for="discountType_amount">Theo số
+                                    tiền</label>
+
+                                  <span class="next-radio--styled"></span>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="next-input-wrapper">
+                                  <input data-bind="discountType" value="3" type="radio" class="next-radio"
+                                    name="reward_type" id="discountType_free_shipping">
+                                  <label class="next-label next-label--switch" for="discountType_free_shipping">Miễn
+                                    phí vận chuyển</label>
+
+                                  <span class="next-radio--styled"></span>
+                                </div>
+                              </li>
+                            </ul>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                  <section class="ui-card">
+                    <header class="ui-card__header">
+                      <h2 class="ui-heading">Giá trị</h2>
+
+                      <div class="ui-card__section">
+                        <div class="ui-type-container">
+                          <div class="ui-form__section">
+                            <div class="ui-form__group">
+                              <div class="next-input-wrapper next-input-wrapper--50" id="div_giatrikhuyenmai_phantram"
+                                data-bind-show="discountType == 'percentage'">
+                                <label class="next-label" for="discount_next_percentage_value">Giá trị
+                                  khuyến mãi</label>
+                                <div class="next-input--stylized  div-phantram">
+                                  <input type="number" min="0" max="100" autocomplete="on" id="value_percentage"
+                                    name="discount_amount_phamtram">
+                                  <span class="next-input__add-on next-input__add-on--after" id="phantram">%</span>
+                                </div>
+                              </div>
+                              <div data-bind-show="discountType == 'amount'" id="div_giatrikhuyenmai_vnd"
+                                class="next-input-wrapper next-input-wrapper--50 hide">
+                                <label class="next-label" for="discount_next_amount_value">Giá trị
+                                  khuyến mãi</label>
+                                <div class="next-input--stylized">
+                                  <input type="number" value="" data-bind="amountValue" name="discount_amount_vnd"
+                                    id="discount_next_amount_value" />
+                                  <span class="next-input__add-on next-input__add-on--after" id="phantram">₫</span>
+                                </div>
+                              </div>
+                              <script>
+                                $(document).ready(function () {
+                                  // Ở đây tôi sử dụng jQuery để thêm sự kiện khi giá trị thay đổi
+                                  $("#value_percentage").on('input', function () {
+                                    // Nếu giá trị thay đổi trong trường phần trăm, đặt giá trị của trường giá trị VNĐ về rỗng
+                                    $("#discount_next_amount_value").val('');
+                                  });
+
+                                  $("#discount_next_amount_value").on('input', function () {
+                                    // Nếu giá trị thay đổi trong trường giá trị VNĐ, đặt giá trị của trường phần trăm về rỗng
+                                    $("#value_percentage").val('');
+                                  });
+                                });
+                              </script>
+
+                              <!-- <div data-bind-show="discountType != 'amount'" id="div_giatrigiamtoida"
+                                class="next-input-wrapper  next-input-wrapper--50 hide">
+                                <label class="next-label" for="discount_value_limit_amount">
+                                  <span id='Price_maximum_reduction'>Giá
+                                    trị giảm tối đa</span>
+                                 
+                                  <span class="text-muted">(tuỳ chọn)</span>
+                                </label>
+                                <div class="next-input--stylized">
+                                  <input type="number" value="0" name="max_price" id="discount_value_limit_amount" />
+                                  <span class="next-input__add-on next-input__add-on--after" id="phantram">₫</span>
+                                </div>
+                              </div> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="ui-card__section" data-bind-show="discountType != 'free_shipping'"
+                        data-define="{appliesTo: &quot;all&quot;}">
+                        <div class="ui-type-container">
+                          <h3 style="font-weight:500">Áp dụng cho</h3>
+                          <div>
+                            <fieldset class="ui-choice-list">
+                              <ul id="voucherTypeList">
+                                <li>
+                                  <div class="next-input-wrapper">
+                                    <label class="next-label next-label--switch" for="discount_next_applies_to_cart">Tất
+                                      cả sản phẩm</label>
+                                    <input data-bind="appliesTo" value="1" type="radio" class="next-radio"
+                                      name="voucher_type" id="discount_next_applies_to_cart" checked>
+                                    <span class="next-radio--styled"></span>
+                                  </div>
+                                </li>
+                                <!-- <li>
+                                  <div class="next-input-wrapper">
+                                    <label class="next-label next-label--switch"
+                                      for="discount_next_applies_to_collections">Danh mục sản phẩm</label>
+                                    <input value="2" type="radio" class="next-radio" name="voucher_type"
+                                      id="discount_next_applies_to_collections">
+                                    <span class="next-radio--styled"></span>
+                                  </div>
+                                </li> -->
+                                <li>
+                                  <div class="next-input-wrapper">
+                                    <label class="next-label next-label--switch"
+                                      for="discount_next_applies_to_products">Sản phẩm</label>
+                                    <input data-bind="appliesTo" value="2" type="radio" class="next-radio"
+                                      name="voucher_type" id="discount_next_applies_to_products">
+                                    <span class="next-radio--styled"></span>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="next-input-wrapper">
+                                    <label class="next-label next-label--switch"
+                                      for="discount_next_applies_to_products">Mua Hàng</label>
+                                    <input data-bind="appliesTo" value="3" type="radio" class="next-radio"
+                                      name="voucher_type" id="oder_products">
+                                    <span class="next-radio--styled"></span>
+                                  </div>
+                                </li>
+                              </ul>
+                              <script>
+                                var listItems = document.querySelectorAll('#voucherTypeList li');
+                                var voucherTypeList = document.getElementById('voucherTypeList');
+
+                                listItems.forEach(function (listItem) {
+                                  listItem.addEventListener('click', function () {
+                                    var selectedInput = listItem.querySelector('input[type="radio"]:checked');
+                                    if (selectedInput) {
+                                      console.log(selectedInput.value);
+                                      voucherTypeList.setAttribute('name', selectedInput.value);
+
+                                    }
+                                  });
+                                });
+                              </script>
+                            </fieldset>
+                          </div>
+                          <div data-bind-show="appliesTo !== 'all'" class="hide">
+                            <div id="search_product">
+                              <div class="ui-form__section">
+                                <div class="next-input-wrapper search-area ">
+
+                                  <div class="chosen-container">
+                                    <input type="hidden" name="item_product_id_list" id="item_product_id_list">
+                                    <select id="multipleChosen_product" multiple="true" class="chosen-select">
+                                      <option value="" disabled selected>Chọn sản phẩm</option>
+                                      <% products.forEach(item=> { %>
+                                        <option value="<%= item.id %>">
+                                          <%= item.name %>
+                                        </option>
+                                        <% }); %>
+                                    </select>
+                                  </div>
+                                  <script>
+
+                                    $(document).ready(function () {
+                                      // Initialize Chosen
+                                      $("#multipleChosen_product").chosen({
+                                        no_results_text: "Không tồn tại",
+                                        placeholder_text_multiple: "Select options",
+                                        search_contains: true
+                                      });
+
+
+                                      // Add event listener for change event
+
+                                      $("#multipleChosen_product").on('change', function (event, params) {
+                                        console.log('Selected Values:', $(this).val());
+                                        const jsonInput = document.getElementById('item_product_id_list');
+                                        jsonInput.value = $(this).val();
+                                      });
+                                    });
+                                  </script>
+                                </div>
+                              </div>
+                              <div class="product-resource">
+                                <ul class="next-list--divided next-list--divided--top" id="js-products-container">
+
+                                </ul>
+                              </div>
+                            </div>
+                            <div id="search_catory_product">
+                              <div class="ui-form__section">
+                                <div class="next-input-wrapper search-area">
+                                  <label class="next-label helper--visually-hidden">Select
+                                    the collections this discount will apply
+                                    to</label>
+                                  <div class="next-field__connected-wrapper">
+                                    <div class="next-input--stylized next-field--connected">
+                                      <span class="next-input__add-on next-input__add-on--before">
+
+                                      </span>
+                                      <input type="search" data-bind="input" data-bind-event-keyup="openModal(event)"
+                                        data-bind-event-paste="openModal(event)" placeholder="Tìm kiếm danh mục"
+                                        class="next-input next-input--search next-input--invisible">
+                                    </div>
+                                    <button class="btn1 next-field--connected--no-flex btn1-default"
+                                      data-bind-event-click="openModal(event)" type="button" name="button">Tìm
+                                      kiếm</button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="collection-resource">
+                                <ul class="next-list--divided next-list--divided--top" id="js-collections-container">
+
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </header>
+
+                    <!-- <div class="ui-card__section hide"
+                    data-bind-show="appliesTo !== 'all' &amp;&amp; discountType === 'amount'"
+                    data-bind-attribute="{'data-tg-remote-noserialize': appliesTo === 'all' || discountType !== 'amount'}"
+                    data-tg-remote-noserialize="true">
+                  </div>
+                </section>
+                <section class="ui-card
+             hide " data-bind-show="discountType ==='free_shipping'">
+                  <section class="ui-card__section hide" data-bind-show="discountType ==='free_shipping'"
+                    data-bind-attribute="{'data-tg-remote-noserialize': discountType !== 'free_shipping' }"
+                    data-tg-remote-noserialize="true">
+                    <div class="ui-type-container">
+                      <h3 class="ui-subheading">Phí ship</h3>
+                      <div class="next-input-wrapper">
+                        <label class="next-label next-label--switch" for="discount_next_hasMaximumShippingRate">
+                          Áp dụng với phí vận chuyển dưới
+                        </label>
+
+                        <input data-bind="hasMaximumShippingRate" data-bind-disabled="discountType !== 'free_shipping'"
+                          class="next-checkbox" type="checkbox" value="true" name="hasMaximumShippingRate"
+                          id="discount_next_hasMaximumShippingRate">
+                        <span class="next-checkbox--styled">
+                          <svg class="next-icon next-icon--size-10 checkmark">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-checkmark-thick">
+                            </use>
+                          </svg>
+                        </span>
+                      </div>
+                      <div data-bind-show="hasMaximumShippingRate"
+                        class="next-input--align-with-radio discount-value-input hide">
+                        <div class="next-input-wrapper next-input-wrapper--50">
+                          <label class="next-label helper--visually-hidden" for="discount_next_maximumShippingRate">
+                            Maximum shipping rate
+                          </label>
+                          <div class="next-input--stylized">
+
+                            <input data-bind="maximumShippingRate"
+                              data-bind-disabled="!hasMaximumShippingRate || discountType !== 'free_shipping'"
+                              class="next-input next-input--invisible" size="30" type="text"
+                              data-autonumeric="autoNumeric" autocomplete="off" name="maximumShippingRate"
+                              id="discount_next_maximumShippingRate" />
+                            <span class="next-input__add-on next-input__add-on--after">₫</span>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section> -->
+                    <!-- </section> -->
+                    <!-- <section class="ui-card">
+                      <header class="ui-card__header">
+                        <h2 class="ui-heading">Điều kiện áp dụng</h2>
+                      </header>
+                      <div class="ui-card__section">
+                        <div class="ui-type-container">
+                          <fieldset class="ui-choice-list">
+                            <ul>
+                              <li>
+                                <div class="next-input-wrapper">
+                                  <label class="next-label next-label--switch" for="prequisiteType_none">Không
+                                    có</label>
+                                  <input name="prequisiteType" checked class="next-radio" type="radio" value="none"
+                                    id="prequisiteType_none">
+                                  <span class="next-radio--styled"></span>
+                                </div>
+                              </li>
+                              <li data-bind-show="discountType != 'free_shipping'">
+                                <div class="next-input-wrapper">
+                                  <label class="next-label next-label--switch"
+                                    for="prequisiteType_minimumSaleTotalPrice">Tổng
+                                    giá trị đơn hàng tối thiểu</label>
+                                  <input name="prequisiteType" class="next-radio" type="radio"
+                                    value="minimumSaleTotalPrice" id="sum_all_product">
+                                  <span class="next-radio--styled"></span>
+                                </div>
+                                <div class="next-input--align-with-radio discount-value-input hide"
+                                  data-bind-show="prequisiteType == 'minimumSaleTotalPrice'">
+                                  <div class="next-input-wrapper next-input-wrapper--50">
+                                    <div class="next-input--stylized" id="prequisiteType_minimumSaleTotalPrice">
+
+                                      <input class="next-input next-input--invisible" size="30" type="number"
+                                        autocomplete="off" name="MinimumSaleTotalPrice">
+                                      <span class="next-input__add-on1 next-input__add-on--after">₫</span>
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </li>
+
+                              <li>
+                              </li>
+                            </ul>
+                          </fieldset>
+                        </div>
+                      </div>
+                    </section> -->
+                    <section class="ui-card">
+                      <header class="ui-card__header">
+                        <h2 class="ui-heading">Nhóm khách hàng</h2>
+                      </header>
+                      <div class="ui-card__section">
+                        <div class="ui-type-container">
+                          <div>
+                            <fieldset class="ui-choice-list">
+                              <ul>
+                                <li>
+                                  <div class="next-input-wrapper">
+                                    <label class="next-label next-label--switch"
+                                      for="discount_next_customer_selection_all">Tất
+                                      cả</label>
+                                    <input id="discount_next_customer_selection_all" data-bind="customerSelection"
+                                      value="all" type="radio" checked class="next-radio" name="customerSelection">
+                                    <span class="next-radio--styled"></span>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="next-input-wrapper">
+                                    <label class="next-label next-label--switch"
+                                      for="discount_next_customer_selection_prerequisite">
+                                      Nhóm khách hàng
+                                    </label><input data-bind="customerSelection" value="prerequisite" type="radio"
+                                      class="next-radio" name="customerSelection"
+                                      id="discount_next_customer_selection_prerequisite">
+                                    <span class="next-radio--styled"></span>
+                                  </div>
+                                </li>
+                              </ul>
+                            </fieldset>
+                          </div>
+                          <div>
+                            <link rel="stylesheet"
+                              href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+                            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                            <script
+                              src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+                            <style>
+                              .chosen-container {
+                                margin-left: 15px;
+                                width: 300px;
+                                height: 50px;
+                              }
+
+                              #multipleChosen {
+                                width: 300px;
+                                height: 50px;
+                              }
+
+                              select {
+                                width: 100%;
+                                padding: 10px;
+                                box-sizing: border-box;
+                                border: 1px solid #ccc;
+                                border-radius: 4px;
+                                font-size: 16px;
+                                outline: none;
+                              }
+
+                              select:hover {
+                                border-color: #3498db;
+                              }
+
+                              select:focus {
+                                border-color: #2980b9;
+                              }
+                            </style>
+
+                            <div id="chonkhachhang">
+                              <input type="hidden" name="item_user_id_list" id="item_user_id_list" value="">
+                              <div class="chosen-container">
+                                <select id="multipleChosen" multiple="true" class="chosen-select">
+                                  <option value="" disabled selected>Chọn khách hàng</option>
+                                  <% users.forEach(item=> { %>
+                                    <option value="<%= item.id %>">
+                                      <%= item.username %>
+                                    </option>
+                                    <% }); %>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </section>
+                    <script>
+
+                      $(document).ready(function () {
+                        // Add this line to force horizontal layout
+                        $(".chosen-container").css("display", "inline-block");
+
+                        // Initialize Chosen
+                        $("#multipleChosen").chosen({
+                          no_results_text: "Không tồn tại",
+                          placeholder_text_multiple: "Select options",
+                          search_contains: true
+                        });
+
+                        // Add event listener for change event
+                        $("#multipleChosen").on('change', function (event, params) {
+                          console.log('Selected Values:', $(this).val());
+                          const jsonInput = document.getElementById('item_user_id_list');
+                          jsonInput.value = $(this).val();
+                        });
+                      });
+
+                      var discount_next_customer_selection_all = document.getElementById('discount_next_customer_selection_all');
+                      var discount_next_customer_selection_prerequisite = document.getElementById('discount_next_customer_selection_prerequisite');
+
+                      discount_next_customer_selection_prerequisite.addEventListener('change', function () {
+                        document.getElementById('chonkhachhang').style.display = 'block';
+                      });
+
+                      discount_next_customer_selection_all.addEventListener('change', function () {
+                        document.getElementById('chonkhachhang').style.display = 'none';
+                      });
+
+
+
+                    </script>
+                    <section class="ui-card">
+                      <header class="ui-card__header">
+                        <h2 class="ui-heading">Giới hạn sử dụng</h2>
+                      </header>
+                      <div class="ui-card__section">
+
+                        <div class="ui-card__section">
+                          <ul>
+                            <li>
+                              <label class="next-label next-label--switch" for="discount_next_hasUsageLimit">Giới hạn số
+                                lần mã giảm giá được áp dụng</label>
+                              <input data-bind="hasUsageLimit" class="next-checkbox" type="checkbox" value="true"
+                                id="discount_next_hasUsageLimit">
+                            </li>
+                            <li id="usageLimitInput" style="display: none;">
+                              <label class="next-label" for="discount_next_usageLimit">Số lần giảm giá tối đa</label>
+                              <input data-bind="usageLimit" class="next-input" type="number" name="usage_quantity"
+                                id="discount_next_usageLimit" value="0">
+                            </li>
+                          </ul>
+                        </div>
+
+                        <script>
+                          $(document).ready(function () {
+                            // Thêm sự kiện cho checkbox
+                            $("#discount_next_hasUsageLimit").on('change', function () {
+                              // Nếu checkbox được chọn, hiển thị input; ngược lại ẩn input
+                              $("#usageLimitInput").toggle(this.checked);
+                            });
+                          });
+                        </script>
+
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+                        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+                      </div>
+                      <div class="ui-card__section">
+                        <div class="ui-type-container">
+                          <div class="ui-form__section">
+                            <div class="ui-form__group">
+                              <!-- Ngày bắt đầu -->
+                              <div class="next-input-wrapper">
+                                <label for="discount_starts_at" class="next-label">Ngày bắt đầu</label>
+                                <input name="start_date" type="text" id="datepickerstart" required
+                                  class="next-input next-input--invisible input-date" placeholder="Ngày bắt đầu">
+                              </div>
+                              <div class="next-input-wrapper">
+                                <label for="timepickerstart" class="next-label">Thời điểm bắt đầu</label>
+                                <input name="start_time" type="text" id="timepickerstart" required
+                                  class="next-input next-input--invisible input-date" placeholder="Thời điểm bắt đầu">
+                              </div>
+                            </div>
+
+                            <div class="next-input-wrapper">
+                              <label class="next-label next-label--switch" for="discount_next_hasEndsDate">Thời gian kết
+                                thúc</label>
+                              <input bind="hasEndsDate" class="next-checkbox" type="checkbox" value="true"
+                                name="HasEndsDate" if="discount_next_hasEndsDate" id="discount_next_hasEndsDate">
+                            </div>
+                            <div data-bind-show="hasEndsDate">
+                              <div class="ui-form__group">
+                                <!-- Ngày kết thúc -->
+                                <div class="next-input-wrapper">
+                                  <label for="discount_starts_at" class="next-label">Ngày kết thúc</label>
+                                  <input name="end_date" type="text" id="datepickerend" required
+                                    class="next-input next-input--invisible input-date" placeholder="Ngày kết thúc">
+                                </div>
+                                <div class="next-input-wrapper">
+                                  <label for="timepickerend" class="next-label">Thời điểm kết thúc</label>
+                                  <input name="end_time" type="text" id="timepickerend" required
+                                    class="next-input next-input--invisible input-date"
+                                    placeholder="Thời điểm kết thúc">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- thời gian -->
+                      <script>
+                        // Hàm kiểm tra biểu mẫu trước khi gửi
+                        function validateForm() {
+                          var startDateInput = document.getElementById("datepickerstart").value;
+                          var startTimeInput = document.getElementById("timepickerstart").value;
+                          var endDateInput = document.getElementById("datepickerend").value;
+                          var endTimeInput = document.getElementById("timepickerend").value;
+
+                          // Kiểm tra xem cả hai ngày bắt đầu và kết thúc đã được chọn hay chưa
+                          if (!startDateInput || !startTimeInput || !endDateInput || !endTimeInput) {
+                            // Hiển thị cảnh báo nếu cần
+                            alert("Vui lòng chọn cả hai ngày bắt đầu và kết thúc.");
+                            return false; // Ngăn chặn việc gửi biểu mẫu
+                          }
+                          // Nếu cả hai ngày bắt đầu và kết thúc đã được chọn, biểu mẫu sẽ được gửi bình thường
+                          return true;
+                        }
+                      </script>
+                      <script>
+                        // Lắng nghe sự kiện khi giá trị thay đổi trong các trường nhập liệu
+                        document.getElementById("datepickerstart").addEventListener("change", setDefaultTimes);
+                        document.getElementById("timepickerstart").addEventListener("change", setDefaultTimes);
+                        document.getElementById("datepickerend").addEventListener("change", setDefaultTimes);
+                        document.getElementById("timepickerend").addEventListener("change", setDefaultTimes);
+
+                        // Hàm thiết lập giá trị mặc định cho thời điểm bắt đầu và thời điểm kết thúc
+                        function setDefaultTimes() {
+                          var startDateInput = document.getElementById("datepickerstart").value;
+                          var startTimeInput = document.getElementById("timepickerstart").value;
+                          var endDateInput = document.getElementById("datepickerend").value;
+                          var endTimeInput = document.getElementById("timepickerend").value;
+
+                          // Nếu không có giá trị trong trường nhập liệu thời điểm bắt đầu
+                          if (!startDateInput || !startTimeInput) {
+                            // Thiết lập giá trị mặc định cho thời điểm bắt đầu là 00:00
+                            document.getElementById("datepickerstart").value = ""; // Có thể thiết lập giá trị mặc định khác cho ngày bắt đầu
+                            document.getElementById("timepickerstart").value = "00:00"; // Thiết lập thời điểm bắt đầu là 00:00
+                          }
+
+                          // Nếu không có giá trị trong trường nhập liệu thời điểm kết thúc
+                          if (!endDateInput || !endTimeInput) {
+                            // Thiết lập giá trị mặc định cho thời điểm kết thúc là 23:59
+                            document.getElementById("datepickerend").value = endDateInput; // Có thể thiết lập giá trị mặc định khác cho ngày kết thúc
+                            document.getElementById("timepickerend").value = "23:59"; // Thiết lập thời điểm cuối của ngày
+                          }
+                        }
+
+                        // Gọi hàm thiết lập giá trị mặc định khi trang được tải
+                        setDefaultTimes();
+                      </script>
+                      <script>
+                        // Kích hoạt flatpickr cho Ngày bắt đầu
+                        flatpickr("#datepickerstart", {
+                          enableTime: false, // Không cho phép chọn thời gian
+                          dateFormat: "d-m-Y", // Định dạng ngày (năm-tháng-ngày)
+                          defaultDate: "today", // Sử dụng ngày hiện tại làm giá trị mặc định
+                          timeZone: "Asia/Ho_Chi_Minh", // Đặt múi giờ Việt Nam
+                        });
+
+                        // Kích hoạt flatpickr cho Thời điểm bắt đầu
+                        flatpickr("#timepickerstart", {
+                          noCalendar: true, // Không hiển thị lịch
+                          enableTime: true, // Cho phép chọn thời gian
+                          dateFormat: "H:i", // Định dạng thời gian
+                        });
+
+                        // Kích hoạt flatpickr cho Ngày kết thúc
+                        var currentDate = new Date();
+
+                        // Cộng thêm 1 ngày
+                        currentDate.setDate(currentDate.getDate() + 1);
+
+                        // Lấy ngày, tháng, năm
+                        var day = currentDate.getDate();
+                        var month = currentDate.getMonth() + 1; // Lưu ý rằng tháng trong JavaScript bắt đầu từ 0
+                        var year = currentDate.getFullYear();
+
+                        // Tạo chuỗi ngày theo định dạng "ngày-tháng-năm"
+                        var tomorrowDateString = day + '-' + month + '-' + year;
+
+                        // Áp dụng giá trị cho trường nhập liệu
+                        flatpickr("#datepickerend", {
+                          enableTime: false, // Không cho phép chọn thời gian
+                          dateFormat: "d-m-Y", // Định dạng ngày (ngày-tháng-năm)
+                          defaultDate: tomorrowDateString, // Sử dụng ngày hiện tại cộng thêm 1 ngày
+                          timeZone: "Asia/Ho_Chi_Minh", // Đặt múi giờ Việt Nam
+                        });
+
+                        // Kích hoạt flatpickr cho Thời điểm kết thúc
+                        flatpickr("#timepickerend", {
+                          noCalendar: true, // Không hiển thị lịch
+                          enableTime: true, // Cho phép chọn thời gian
+                          dateFormat: "H:i", // Định dạng thời gian
+                        });
+
+
+                      </script>
+                      <!--  -->
+
+                </div>
+                <button class="btn btn-save" type="submit" style="margin-top: -2px; background-color: aqua;">Lưu
+                  lại</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+        <script class="modal_source" style="display:none;" define="{searchProductModal: new Bizweb.Modal(this)}"
+          type="text/html">
+<div class="modal-dialog discount_picker_modal">
+<div class="modal-content">
+<div id="discounts_product_picker_modal">
+<div class="ui-modal__header" fixed="true">
+<div class="ui-modal__header-title">
+  <h2 class="ui-title" id="discounts_product_picker_modal_heading"></h2>
+  <h2 class="ui-title">
+      Áp dụng sản phẩm khuyến mãi
+  </h2>
+</div>
+<div class="ui-modal__header-actions">
+  <div class="ui-modal__close-button">
+      <button class="btn1 btn1--plain close-modal" aria-label="Close modal" type="button" name="button">
+          <svg class="next-icon next-icon--color-ink-lighter next-icon--size-20"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cancel-small-minor"></use> </svg>
+      </button>
+  </div>
+</div>
+</div>
+<div class="ui-modal__section">
+<div class="next-input-wrapper">
+  <label class="next-label helper--visually-hidden">
+  </label>
+  <div class="next-input--stylized next-input--has-content">
+      <span class="next-input__add-on next-input__add-on--before">
+          <svg class="next-icon next-icon--size-16">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-search-reverse"></use>
+          </svg>
+      </span>
+      <input type="search" bind-event-keydown="event.keyCode != 27 && submitQuery(true)" placeholder="Tìm kiếm sản phẩm" data-bind="input"
+             class="next-input next-input--invisible js-resource-browser-input js-modal-search-input">
+  </div>
+</div>
+</div>
+<div class="ui-modal__body apply-type-modal">
+<div define="{loading : true}" class="ui-modal__section ui-modal__section--no-padding">
+  <ul class="next-list next-list--divided js-results-list"></ul>
+  <div class="ui-stack ui-stack--wrap ui-stack--distribution-center next-spinner__container" bind-show="loading">
+      <div class="next-spinner">
+          <svg class="next-icon next-icon--size-40"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#next-spinner"></use> </svg>
+      </div>
+  </div>
+</div>
+</div>
+
+          </div>
+
+          <!-- Modal Logout -->
+          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabelLogout">Ohh No!</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Are you sure you want to logout?</p>
+                </div> 
+                <button type="button" class="btn btn-outline-primary"
+                data-dismiss="modal">Cancel</button>
+                <form action="/admin/auth/logout" method="POST">
+                   <button type="submit" class="btn btn-primary" style="width: auto;">Logout</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!---Container Fluid-->
+      </div>
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>copyright &copy;
+              <script> document.write(new Date().getFullYear()); </script> - developed by
+        <b><a href="https://github.com/ShopBanGiayUIMY" target="_blank">MD-02 Fall 2023</a></b>
+        </span>
+      </div>
+    </div>
+    </footer>
+
+  </div>
+  </div>
+  <!-- Scrollto to top -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+
+  <script>
+    var discountTypePercentage = document.getElementById('discountType_percentage');
+    var discountTypeAmount = document.getElementById('discountType_amount');
+    var discountTypeFreeship = document.getElementById('discountType_free_shipping');
+
+
+    var div_giatrikhuyenmai_phantram = document.getElementById('div_giatrikhuyenmai_phantram');
+    var div_giatrikhuyenmai_vnd = document.getElementById('div_giatrikhuyenmai_vnd');
+    var div_giatrigiamtoida = document.getElementById('div_giatrigiamtoida');
+
+    var discount_next_applies_to_cart = document.getElementById('discount_next_applies_to_cart');
+    var discount_next_applies_to_collections = document.getElementById('discount_next_applies_to_collections');
+    var discount_next_applies_to_products = document.getElementById('discount_next_applies_to_products');
+    var oder_products = document.getElementById('oder_products');
+    var search_product = document.getElementById('search_product');
+    var search_catory = document.getElementById('search_catory_product');
+    var prequisiteType_none = document.getElementById('prequisiteType_none');
+    var prequisiteType_minimumSaleTotalPrice = document.getElementById('prequisiteType_minimumSaleTotalPrice');
+    var discount_next_customer_selection_all = document.getElementById('discount_next_customer_selection_all');
+    var sum_all_product = document.getElementById('sum_all_product');
+
+
+    window.onload = function () {
+      if (discountTypePercentage.checked) {
+        div_giatrikhuyenmai_vnd.style.display = 'none';
+      }
+      if (discount_next_applies_to_cart.checked) {
+        search_product.style.display = 'none';
+        search_catory.style.display = 'none';
+      }
+      if (prequisiteType_none.checked) {
+        prequisiteType_minimumSaleTotalPrice.style.display = 'none';
+      }
+      if (discount_next_customer_selection_all.checked) {
+        search_product.style.display = 'none';
+        search_catory.style.display = 'none';
+      }
+    };
+    discountTypePercentage.addEventListener('change', () => {
+      if (discountTypePercentage.checked) {
+        div_giatrikhuyenmai_vnd.style.display = 'none';
+        div_giatrikhuyenmai_phantram.style.display = 'block';
+
+      }
+    });
+    discountTypeAmount.addEventListener('change', () => {
+      if (discountTypeAmount.checked) {
+        div_giatrikhuyenmai_vnd.style.display = 'block';
+        div_giatrikhuyenmai_phantram.style.display = 'none';
+        div_giatrigiamtoida.style.display = 'none';
+
+      }
+    });
+    discountTypeFreeship.addEventListener('change', () => {
+      if (discountTypeFreeship.checked) {
+
+        div_giatrikhuyenmai_phantram.style.display = 'none';
+        div_giatrikhuyenmai_vnd.style.display = 'none';
+        console.log('freeship');
+      }
+
+
+    })
+    discount_next_applies_to_cart.addEventListener('change', () => {
+      if (discount_next_applies_to_cart.checked) {
+        search_product.style.display = 'none';
+        search_catory.style.display = 'none';
+      }
+    })
+    // discount_next_applies_to_collections.addEventListener('change', () => {
+    //   if (discount_next_applies_to_collections.checked) {
+    //     search_product.style.display = 'none';
+    //     search_catory.style.display = 'block';
+    //   }
+    // })
+    oder_products.addEventListener('change', () => {
+      if (oder_products.checked) {
+        search_product.style.display = 'none';
+        search_catory.style.display = 'none';
+      }
+    })
+    discount_next_applies_to_products.addEventListener('change', () => {
+      if (discount_next_applies_to_products.checked) {
+        search_product.style.display = 'block';
+        search_catory.style.display = 'none';
+      }
+    })
+    sum_all_product.addEventListener('change', () => {
+      if (sum_all_product.checked) {
+        prequisiteType_minimumSaleTotalPrice.style.display = 'block';
+      }
+    })
+    prequisiteType_none.addEventListener('change', () => {
+      if (prequisiteType_none.checked) {
+        prequisiteType_minimumSaleTotalPrice.style.display = 'none';
+      }
+    })
+    function generateRandomCode() {
+      let result = '';
+      let length = 10
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+      for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+      }
+      document.getElementById('discount_next_code').value = result;
+      return result;
+    }
+  </script>
+</body>
+
+</html>

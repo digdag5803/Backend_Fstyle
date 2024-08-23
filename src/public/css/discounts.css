@@ -1,0 +1,269 @@
+/* Giao diện chung cho phần layout */
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px;
+    width: 100%;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia cột theo tỉ lệ */
+    justify-content: center;
+    position: relative;
+    left: 10%;
+}
+
+.ui-layout__section {
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 50px;
+    padding: 5px;
+    height: 10%;
+}
+/* Thiết kế header */
+.ui-card__header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Thiết kế tiêu đề */
+.ui-heading {
+    color: #333;
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Thiết kế liên kết "Sinh mã ngẫu nhiên" */
+a[data-bind-event-click="generateCode()"] {
+    color: blue;
+    text-decoration: none;
+    /* Các thuộc tính CSS khác cho liên kết */
+}
+
+a[data-bind-event-click="generateCode()"]:hover {
+    text-decoration: underline;
+}
+
+/* Thiết kế các phần section */
+.ui-card__section {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    margin: 10px 0;
+}
+
+/* Thiết kế label */
+.next-label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+#div-phantram{
+    position: relative;
+    left: 20px;
+    top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+/* Thiết kế input */
+.next-input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Thiết kế help-text */
+.next-input__help-text {
+    color: #666;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* Thiết kế khi có lỗi */
+.has-error {
+    color: #ff0000;
+    margin-top: 5px;
+    display: none;
+}
+.has-error.show {
+    display: block;
+}
+.next-input--stylized {
+    position: relative;
+}
+
+#value_percentage, #discount_next_amount_value,#discount_value_limit_amount{
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 14px;
+    height: 40px;
+    font-size: 15px;
+    padding-left: 10px;
+  
+
+}
+ul{
+    list-style-type: none;
+
+}
+#phantram{
+
+ left: 271px;
+    margin-top: 14px;
+    font-size: 14px;
+    position: absolute;
+}
+#discountType_free_shipping,#discountType_amount,#discountType_percentage{
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 5px;
+}
+
+
+
+
+
+  .next-input--stylized input[type="search"] {
+    width: 260px; /* Điều chỉnh độ rộng của ô tìm kiếm */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .next-input--stylized input[type="search"]:focus {
+    outline: none;
+    border-color: #007bff; /* Màu khi focus */
+  }
+  
+
+  .next-input--stylized .next-input__add-on1 {
+    top: 13px;
+    display: inline-block;
+    position: absolute;
+    left: 265px;
+  }
+  /* Nút tìm kiếm */
+  .btn1 {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    left: 272px;
+    top: -41px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Màu khi hover */
+  }
+
+
+
+  /* Assuming a reset or normalize CSS file is included */
+
+  
+  .ui-card__header {
+    margin-bottom: 15px; /* Adjust the margin as needed */
+  }
+  
+  .ui-heading {
+    font-size: 1.5em; /* Adjust the font size as needed */
+    color: #333; /* Set the text color */
+  }
+  
+  .ui-card__section {
+    margin-top: 15px; /* Adjust the margin as needed */
+  }
+  
+  .ui-type-container {
+    /* Add styles for the type container if needed */
+  }
+  
+  .ui-choice-list {
+    list-style: none; /* Remove list styling */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .next-input-wrapper {
+    margin-bottom: 10px; /* Adjust the margin as needed */
+  }
+  
+  .next-label {
+    display: inline-block;
+    margin-right: 10px; /* Adjust the margin as needed */
+    font-weight: bold; /* Add bold font weight if desired */
+    /* Add more styles as needed */
+  }
+  
+  .next-radio {
+    /* Style the radio button */
+  }
+  
+  .next-input--align-with-radio {
+    width: 642px;
+  }
+  
+  .next-input-wrapper--50 {
+    width: 50%; /* Adjust the width as needed */
+  }
+  
+  .next-input {
+    /* Style the input field */
+  }
+  
+  .next-input__add-on {
+    /* Style the currency symbol or any additional add-ons */
+    position: relative;
+    left: 100px;
+  }
+  
+/* Thiết lập flex container cho group */
+.ui-form__group {
+  display: flex;
+}
+
+/* Thiết lập flex item cho mỗi input-wrapper */
+.next-input-wrapper {
+  flex: 1;
+  margin-right: 10px; /* Đặt khoảng cách giữa các input */
+}
+
+/* Định dạng label */
+.next-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Định dạng input datepicker và timepicker */
+.next-input--invisible {
+  display: block; /* Hiển thị input dưới dạng block để nó chia cùng một dòng với label */
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

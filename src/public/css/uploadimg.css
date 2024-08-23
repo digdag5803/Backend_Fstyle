@@ -1,0 +1,109 @@
+
+  
+  .inp {
+    display: none;
+  }
+  
+  .progressBar {
+    margin-left: -10px;
+    margin-right: 16px;
+    width: 193px;
+    color: brown  ;
+    padding: 15px -2px;
+    position: relative;
+    
+  }
+  
+  .progress {
+    height: 10%;
+    width: 0%;
+    background: linear-gradient(75deg, rgb(11, 65, 173), rgb(179, 10, 165));
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  .fa-times {
+    position: relative;
+    left: 65px;
+    top: -163px;
+    color: rgb(0, 255, 38);
+    font-size: 20px;
+    cursor: pointer;
+    font-size: 30px;
+    display: none;
+  }
+  .img {
+    height: 164px;
+    width: 164px;
+    border: 3px solid crimson;
+    -o-object-fit: contain;
+    object-fit: contain;
+    display: none;
+    padding: 7px;
+    border-radius: 94px;
+    margin-top: 10px;
+  }
+  
+  .selectImage {
+    background: crimson;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+  }
+  
+  .upload {
+    background: green;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+
+  }
+  
+  button {
+    cursor: pointer;
+    border: none;
+    margin: 10px 0;
+  }
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .filedata {
+    background: rgb(255, 0, 0);
+    padding: 10px 15px;
+    font-size: 14px;
+    max-width: 100px;
+    text-overflow: ellipsis;
+    border-radius: 10px;
+    display: none;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  
+  .imageUpload {
+    height: 131px;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+  }
+  
+
+  .loading {
+    display: none;
+    top: 20px;
+    position: absolute;
+    /* margin-top: 40px; */
+    margin-left: 246px;
+    
+}
+.img_upload{
+  margin-left: 17px;
+  text-align: center;
+  align-items: center;
+  
+}

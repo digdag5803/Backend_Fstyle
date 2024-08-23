@@ -1,0 +1,13 @@
+# BackendNodejs
+# chú ý : ae chạy thì thêm evn vào nhá 
+HOST_NAME=ip
+SERVER_PORT=3000
+DB_HOST=127.0.0.1
+DB_USER=root
+DB_PASSWORD=
+DB_PORT=3306
+DB_DATABASE=nikesneakerstore
+DB_CONNECT_TIMEOUT=100
+DB_DIALECT=mysql
+JWT_ACCESS_KEY=huynvph20687
+JWT_REFRESH_KEY=huynvph20687
