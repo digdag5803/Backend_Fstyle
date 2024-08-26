@@ -19,6 +19,7 @@ const VoucherAdminController = {
             row.reward_type,
             row.discount_amount
           ),
+          
           item_product_id_list: row.item_product_id_list,
           item_user_id_list: row.item_user_id_list,
           usage_quantity: row.usage_quantity,
