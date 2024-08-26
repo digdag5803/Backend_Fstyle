@@ -87,7 +87,7 @@ const AddressController = {
       ]);
 
       const newAddressId = result.insertId;
-      // mat khau
+  
       if (default_address) {
         await User.update({ address: newAddressId }, { where: { user_id } });
       } else {
