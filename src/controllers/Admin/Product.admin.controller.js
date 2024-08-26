@@ -27,6 +27,7 @@ const ProductAdminController = {
               detailId: e.detail_id,
               productId: e.product_id,
             };
+            
           });
         };
 
