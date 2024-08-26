@@ -19,6 +19,7 @@ const Notification = {
         data: { type: "ORDERSTATUS", status: "SHIPPING" },
       });
     }
+    
     let chunks = expo.chunkPushNotifications(messages);
     let tickets = [];
     (async () => {
