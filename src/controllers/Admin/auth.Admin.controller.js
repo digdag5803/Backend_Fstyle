@@ -26,6 +26,7 @@ const authAdminController = {
       { expiresIn: "365d" }
     );
   },
+  
   loginAdmin: async (req, res, next) => {
     const { username, password } = req.body;
 
