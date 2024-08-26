@@ -2,7 +2,7 @@ import Categorydb from "../../Querydb/Categorydb.js";
 import Category from "../../models/Category.js";
 import pool from "../../config/Connection.js";
 const CategoryController = {
-  // get all categories
+  //nhận được tất cả các danh mục
   getCategoryName: async (req, res) => {
     try {
       const categories = await Category.findAll();
@@ -13,7 +13,8 @@ const CategoryController = {
       res.status(500).json({ error: "Lỗi khi lấy danh mục" });
     }
   },
-  // get category by id
+ 
+//lấy danh mục theo id
 
   Categoryid : async (req, res) => {
     const categoryId = req.params.id;
@@ -24,7 +25,7 @@ const CategoryController = {
     }
   
     try {
-      // Get a connection from the pool
+      //Nhận kết nối từ hồ bơi
       const connection = await pool.getConnection();
   
       try {
