@@ -19,6 +19,7 @@ const sequelize = new Sequelize(
     logging: false,
   }
 );
+
 sequelize
   .authenticate()
   .then(() => {
