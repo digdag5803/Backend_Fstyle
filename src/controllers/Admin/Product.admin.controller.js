@@ -27,10 +27,11 @@ const ProductAdminController = {
               detailId: e.detail_id,
               productId: e.product_id,
             };
-            
+
           });
         };
 
+        
         return {
           id: row.product_id,
           name: row.product_name,
