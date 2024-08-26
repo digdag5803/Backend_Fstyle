@@ -75,7 +75,7 @@ export const OrderController = {
       orderId: req.params.id,
     };
     console.log("cancel",req.user.user_id);
-    // console.log(dto);
+    // console.log(dto); tất cả
     const result = await OrderService.cancelOrder(dto);
     const { status, message } = result;
     res.status(status).json({ message: message });

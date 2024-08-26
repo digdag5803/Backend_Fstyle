@@ -97,7 +97,7 @@ const VoucherController = {
         console.error('Query processing error:', queryError);
         return res.status(500).json({ error: "Error processing voucher query" });
       } finally {
-        // Release the connection back to the pool
+        //Giải phóng kết nối trở lại hồ bơi
         connection.release();
       }
     } catch (error) {

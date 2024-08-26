@@ -88,7 +88,7 @@ const FavoritesController = {
     }
   },
   getAllCountFavorites: async (req, res) => {
-    // Get all user IDs in the database
+    //Nhận tất cả ID người dùng trong cơ sở dữ liệu
     const productId=req.params.productId;
     try {
       const result = await FavoritesService.getAllCountFavorites(productId);
