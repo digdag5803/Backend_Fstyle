@@ -28,6 +28,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger);
 app.use(express.json());
