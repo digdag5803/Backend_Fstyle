@@ -111,7 +111,7 @@ const UserAdminController = {
         res.status(404).send("Không tìm thấy người dùng");
       }
     } catch (error) {
-      console.error("Lỗi khi cập nhật thông tinngười dùng:", error);
+      console.error("Lỗi khi cập nhật thông tin người dùng:", error);
       res.status(500).send("Lỗi máy chủ nội bộ");
     }
   },
