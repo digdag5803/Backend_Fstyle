@@ -108,7 +108,7 @@ const UserAdminController = {
       if (result) {
         res.redirect("/admin/users"); // Chuyển hướng sau khi cập nhật thành công
       } else {
-        res.status(404).send("Không tìm thấy người dùng");
+        res.status(404).send("Không tìmthấy người dùng");
       }
     } catch (error) {
       console.error("Lỗi khi cập nhật thông tin người dùng:", error);
