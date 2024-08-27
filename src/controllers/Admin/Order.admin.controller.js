@@ -258,7 +258,7 @@ const OrderController = {
         } else if (statusId == 4) {
           console.log(statusId)
           body =
-            "Đơn hàng đã được vẩn chuyển chuyển, hãy xác nhận đơn hàng và đánh giá đơn hàng nhé.";
+            "Đơn hàng đã được vận chuyển, hãy xác nhận đơn hàng và đánh giá đơn hàng nhé.";
           chunks = expo.chunkPushNotifications([
             {
               to: pushToken,
